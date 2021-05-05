@@ -24,7 +24,7 @@ class DNA {
     return child;
   }
   
-  void mutation() {
+  void mutate() {
     for(int i = 0; i < genes.length; i++) {
       if(random(0, 1) < mutationFactor) {
         genes[i] = PVector.random2D();
