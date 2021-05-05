@@ -21,14 +21,23 @@ class Rocket {
     dna = embed;
   }
   
-  void boundary() {
+  void boundary(Wall wall, Target target) {
     if(pos.x > width || pos.x < 0 || pos.y > height || pos.y < 0) {
       dead = true;
+    }
+    
+    if(pos.x > wall.pos.x && pos.x < wall.pos.x + wall.wallWidth && pos.y > wall.pos.y && pos.y < wall.pos.y + wall.wallHeight) {
+      dead = true;
+    }
+    
+    if(dist(pos.x, pos.y, target.pos.x, target.pos.y) < target.radius) {
+      completed = true;
+      pos = target.pos;
     }
   }
   
   void update() {
-    if(!dead) {
+    if(!dead && !completed) {
       acc.add(dna.genes[index]);
       
       vel.add(acc);
