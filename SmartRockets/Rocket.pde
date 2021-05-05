@@ -7,7 +7,7 @@ class Rocket {
   int rocketHeight = 20;
   int maxSpeed = 4;
 
-  DNA dna = new DNA(false);
+  DNA dna = new DNA(true);
 
   boolean completed = false;
   boolean dead = false;
